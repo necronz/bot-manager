@@ -1,5 +1,5 @@
 <template>
-	<modal name="add-bot-modal" :height="'auto'" styles="padding: 25px 20px;" @before-open="editHandler">
+	<modal name="add-bot-modal" :height="'auto'" styles="padding: 25px 20px;" @before-open="openHandler" @before-close="closeHandler">
 		<form>
 			<div class="form-group">
 				<label for="input-bot-name">Название</label>
@@ -79,7 +79,7 @@ export default {
 	},
 	methods: {
 		...mapMutations(['saveBotDataHandler', 'editBotDataHandler']),
-		editHandler: function(payload) {
+		openHandler: function(payload) {
 			if (payload.params.id) {
 				const data = this.getBotList.find(item => item.id === payload.params.id)
 				this.id = payload.params.id
@@ -89,6 +89,9 @@ export default {
 				this.time = data.time
 				this.modalType = payload.params.type
 			}
+		},
+		closeHandler: function(payload) {
+			this.name = this.description = this.image = this.time = null
 		},
 		onChangeImage: function(image) {
 			if (image) {
