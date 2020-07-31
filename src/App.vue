@@ -1,7 +1,7 @@
 <template>
 	<div id="app">
 		<Navbar />
-		<AddBotModal />
+		<Modal />
 		<div class="container">
 			<BotsList v-if="getBotList.length" />
 			<EmptyList v-else />
@@ -13,14 +13,14 @@
 import { mapGetters } from "vuex"
 
 import Navbar from "@/components/Navbar"
-import AddBotModal from "@/components/AddBotModal"
+import Modal from "@/components/Modal"
 import BotsList from "@/components/BotsList"
 import EmptyList from "@/components/EmptyList"
 
 export default {
 	components: {
 		Navbar,
-		AddBotModal,
+		Modal,
 		BotsList,
 		EmptyList,
 	},
