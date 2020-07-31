@@ -1,6 +1,6 @@
 <template>
 	<div class="row row-cols-1 row-cols-xl-4 row-cols-lg-3 row-cols-md-2 row-cols-sm-2 mt-4">
-		<div class="col mb-4" v-for="item in getBotList" :key="item.name">
+		<div class="col mb-4" v-for="item in getBotList" :key="item.name + Math.round(Math.random() * 10000)">
 			<div class="card h-100">
 				<div class="card-img">
 					<img :src="item.image" class="card-img-top" :alt="item.name" />

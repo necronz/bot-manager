@@ -89,6 +89,10 @@ export default {
 				this.time = data.time
 				this.modalType = payload.params.type
 			}
+
+			if (!payload.params.type) {
+				this.modalType = 'add'
+			}
 		},
 		closeHandler: function(payload) {
 			this.name = this.description = this.image = this.time = null
